@@ -19,7 +19,7 @@ namespace UFAppleService
             if (!Page.IsPostBack)
             {
                 SqlDataSource ds = new SqlDataSource(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString,
-                    "Select COAID From ChartofAccounts");
+                    "Select COAID From ChartofAccounts Where COAID LIKE '1%'");
                 accountDropDown.DataTextField = "COAID";
                 accountDropDown.DataSource = ds;
                 accountDropDown.DataBind();

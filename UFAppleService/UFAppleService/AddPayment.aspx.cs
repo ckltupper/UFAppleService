@@ -13,13 +13,15 @@ namespace UFAppleService
 {
     public partial class AddPayment : System.Web.UI.Page
     {
+        decimal Amount;
+        decimal TrueAmount;
                 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 SqlDataSource ds = new SqlDataSource(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString,
-                    "Select COAID From ChartofAccounts");
+                    "Select COAID From ChartofAccounts Where COAID LIKE '2%'");
                 accountDropDown.DataTextField = "COAID";
                 accountDropDown.DataSource = ds;
                 accountDropDown.DataBind();
@@ -31,11 +33,15 @@ namespace UFAppleService
         {
             using (SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
+                Amount = decimal.Parse(amountTextBox.Text);
+                TrueAmount = Amount * -1;
+
+                
                 SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
                 sqlcmd.CommandText = "Insert into Transactions (SRONumber, COAID, Amount, Date) Values (@SRONumber, @COAID, @Amount, @Date)";
                 sqlcmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
                 sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
-                sqlcmd.Parameters.AddWithValue("@Amount" , amountTextBox.Text);
+                sqlcmd.Parameters.AddWithValue("@Amount" , TrueAmount);
                 sqlcmd.Parameters.AddWithValue("@Date", dateTextBox.Text);
                 sqlconn.Open();
                 sqlcmd.ExecuteNonQuery();
