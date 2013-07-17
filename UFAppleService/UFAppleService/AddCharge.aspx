@@ -1,0 +1,25 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddCharge.aspx.cs" Inherits="UFAppleService.AddCharge" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
+    <asp:Label ID="sRONumberLabel1" runat="server" Text="SRO Number:"></asp:Label>
+    <asp:Label ID="sRONumberLabel2" runat="server" Text="S-"></asp:Label>
+    <asp:TextBox ID="sROTextBox" runat="server" MaxLength="6" Width="57px"></asp:TextBox>
+    <div>
+        <asp:Label ID="accountLabel" runat="server" Text="Account:"></asp:Label>
+        <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="accountDropDown_SelectedIndexChanged"></asp:DropDownList>
+        <asp:SqlDataSource runat="server" ID="accountDropDownDataSource" SelectCommand="AccountNumber" SelectCommandType="StoredProcedure" 
+            ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" OnSelecting="accountDropDownDataSource_Selecting"></asp:SqlDataSource>
+        <asp:Label ID="accountDescriptionLabel" runat="server" Font-Italic="True"></asp:Label>
+    </div>
+    <asp:Label ID="amountLabel" runat="server" Text="Amount:"></asp:Label>
+    <asp:Label ID="dollarSignLabel" runat="server" Text="$"></asp:Label>
+    <asp:TextBox ID="amountTextBox" runat="server" Width="57px"></asp:TextBox>
+    <asp:Label ID="dateLabel" runat="server" Text="Date:"></asp:Label>
+    <asp:TextBox ID="dateTextBox" runat="server" MaxLength="10" Width="90px"></asp:TextBox>
+    <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" />
+
+</asp:Content>
