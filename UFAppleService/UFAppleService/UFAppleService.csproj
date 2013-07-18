@@ -187,6 +187,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="AddPayment.aspx" />
     <Content Include="DateRangeSROPaymentHistory.aspx" />
+    <Content Include="FindMissingSROs.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -201,6 +202,7 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="NumberRangeSROPaymentHistory.aspx" />
+    <Content Include="OpenInvoices.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -326,6 +328,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindMissingSROs.aspx.cs">
+      <DependentUpon>FindMissingSROs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindMissingSROs.aspx.designer.cs">
+      <DependentUpon>FindMissingSROs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -335,6 +344,13 @@
     </Compile>
     <Compile Include="NumberRangeSROPaymentHistory.aspx.designer.cs">
       <DependentUpon>NumberRangeSROPaymentHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenInvoices.aspx.cs">
+      <DependentUpon>OpenInvoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenInvoices.aspx.designer.cs">
+      <DependentUpon>OpenInvoices.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleSROPaymentHistory.aspx.cs">

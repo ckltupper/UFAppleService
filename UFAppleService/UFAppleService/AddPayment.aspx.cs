@@ -25,8 +25,7 @@ namespace UFAppleService
                 accountDropDown.DataTextField = "COAID";
                 accountDropDown.DataSource = ds;
                 accountDropDown.DataBind();
-            }
-
+            }     
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
@@ -37,16 +36,22 @@ namespace UFAppleService
                 TrueAmount = Amount * -1;
 
                 
-                SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
-                sqlcmd.CommandText = "Insert into Transactions (SRONumber, COAID, Amount, Date) Values (@SRONumber, @COAID, @Amount, @Date)";
+                SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.StoredProcedure };
+                sqlcmd.CommandText = "NewCharge";
                 sqlcmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
                 sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
                 sqlcmd.Parameters.AddWithValue("@Amount" , TrueAmount);
                 sqlcmd.Parameters.AddWithValue("@Date", dateTextBox.Text);
+                sqlcmd.Parameters.AddWithValue("@Comment", commentTextBox.Text);
                 sqlconn.Open();
                 sqlcmd.ExecuteNonQuery();
                 sqlconn.Close();
             }
+            sROTextBox.Text = string.Empty;
+            accountDropDown.SelectedIndex = -1;
+            amountTextBox.Text = string.Empty;
+            dateTextBox.Text = string.Empty;
+            commentTextBox.Text = string.Empty;
         }
 
         protected void accountDropDown_SelectedIndexChanged(object sender, EventArgs e)

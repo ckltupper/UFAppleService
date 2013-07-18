@@ -20,6 +20,8 @@
     <asp:TextBox ID="amountTextBox" runat="server" Width="57px"></asp:TextBox>
     <asp:Label ID="dateLabel" runat="server" Text="Date:"></asp:Label>
     <asp:TextBox ID="dateTextBox" runat="server" MaxLength="10" Width="90px"></asp:TextBox>
+    <asp:Label ID="commentLabel" runat="server" Text="Comment:"></asp:Label>
+    <asp:TextBox ID="commentTextBox" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox>
     <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" />
 
 </asp:Content>

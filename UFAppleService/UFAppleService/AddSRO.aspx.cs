@@ -31,6 +31,10 @@ namespace UFAppleService
                 sqlcmd.ExecuteNonQuery();
                 sqlconn.Close();
             }
+            sROTextBox.Text = string.Empty;
+            dateCreatedTextBox.Text = string.Empty;
+            pONumberTextBox.Text = string.Empty;
+
         }
     }
 }
