@@ -25,7 +25,9 @@ namespace UFAppleService
                 accountDropDown.DataTextField = "COAID";
                 accountDropDown.DataSource = ds;
                 accountDropDown.DataBind();
-            }     
+                accountDropDown.SelectedIndex = -1;
+            }
+            
         }
 
         protected void saveButton_Click(object sender, EventArgs e)

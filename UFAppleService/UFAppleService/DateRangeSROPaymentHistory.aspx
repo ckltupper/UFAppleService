@@ -15,7 +15,7 @@
             <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction ID" />
             <asp:BoundColumn DataField="Date" HeaderText="Date" DataFormatString="{0:d}" />
             <asp:BoundColumn DataField="Description" HeaderText="Account" />
-            <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" />
+            <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" />
             <asp:BoundColumn DataField="Comment" HeaderText="Comment" />
         </Columns>
     </asp:DataGrid>

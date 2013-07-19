@@ -2,9 +2,17 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    
+    
+    
+
 <head runat="server">
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/__jquery.tablesorter/jquery-latest.js"></script>
+    <script src="Scripts/__jquery.tablesorter/jquery.tablesorter.js"></script>
+    
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - UF Apple Service</title>
     <asp:PlaceHolder runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
@@ -38,7 +46,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">U</a><a href="~/">F Apple S</a>ervice
+                    <a runat="server">U<a href="Default.aspx">F Apple S</a>ervice </a>
                 </p>
             </div>
             <div class="float-right">
