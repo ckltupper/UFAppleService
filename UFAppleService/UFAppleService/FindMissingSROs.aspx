@@ -6,7 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <asp:DataGrid runat="server" ID="MissingSROGrid" DataSourceID="MissingSROGridDataSource" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="Larger" AutoGenerateColumns="false">
         <Columns>
-            <asp:BoundColumn DataField="MissingSRO" HeaderText="Missing SRO" />
+            <asp:BoundColumn DataField="MissingSRO" HeaderText="Missing SRO" ItemStyle-HorizontalAlign="Center" />
         </Columns>
     </asp:DataGrid>
     <asp:SqlDataSource runat="server" ID="MissingSROGridDataSource" SelectCommand="MissingSRONumbers" SelectCommandType="StoredProcedure" 

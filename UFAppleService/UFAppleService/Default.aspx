@@ -29,9 +29,18 @@
             <a href="OpenInvoices.aspx">Open Invoices</a>
         </li>
         <li class="five">
-            <h5>Missing SRO</h5>
-            View a list of SRO(s) that are missing from the system.
+            <h5>SROs with No Transactions</h5>
+            View a list of SRO(s) that do not havew any transactions listed.
             <a href="FindMissingSROs.aspx">Missing SROs</a>
+            <a href="NoTransactions.aspx">SROs with No Transactions</a>
+        </li>
+        <li class="six">
+            <h5>Revenue Accounts Reports</h5>
+            View a list of transactions for each revenue account.
+            <a href="WarrantyRepairs.aspx">Warranty Repairs</a>
+            <a href="OutOfWarrantyRepairs.aspx">Out of Warranty Repairs</a>
+            <a href="ComplimentaryRepairs.aspx">Complimentary Repairs</a>
+            <a href="RepairAdjustments.aspx">Repair Adjustments</a>
         </li>
     </ol>
 </asp:Content>

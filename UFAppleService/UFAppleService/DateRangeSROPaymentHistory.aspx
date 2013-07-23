@@ -9,15 +9,21 @@
     <asp:Label ID="endDateLabel" runat="server" Text="End Date:"></asp:Label>
     <asp:TextBox ID="endDateTextBox" runat="server" MaxLength="10" Width="90px"></asp:TextBox>
     <asp:Button ID="viewButton" runat="server" Text="View" OnClick="viewButton_Click" />
-    <asp:DataGrid runat="server" ID="DateRangePaymentHistoryGrid" DataSourceID="DateRangePaymentHistoryGridDataSource" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="Larger" AutoGenerateColumns="false">
+    <asp:DataGrid runat="server" ID="DateRangePaymentHistoryGrid" DataSourceID="DateRangePaymentHistoryGridDataSource" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="Larger" AutoGenerateColumns="False" >
         <Columns>
-            <asp:BoundColumn DataField="SRONumber" HeaderText="SRO Number" />
-            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction ID" />
-            <asp:BoundColumn DataField="Date" HeaderText="Date" DataFormatString="{0:d}" />
+            <asp:HyperLinkColumn DataTextField="SRONumber" DataNavigateUrlField="SRONumber" DataNavigateUrlFormatString="SingleSROPaymentHistory.aspx?SRONumber={0}" NavigateUrl="~/SingleSROPaymentHistory.aspx" 
+                HeaderText="SRO Number" />
+            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction ID" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundColumn DataField="Date" HeaderText="Date" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Description" HeaderText="Account" />
-            <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" />
+            <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" >
+<ItemStyle HorizontalAlign="Right"></ItemStyle>
+            </asp:BoundColumn>
             <asp:BoundColumn DataField="Comment" HeaderText="Comment" />
         </Columns>
+
+<HeaderStyle Font-Bold="True" Font-Size="Larger"></HeaderStyle>
+        
     </asp:DataGrid>
     <asp:SqlDataSource runat="server" ID="DateRangePaymentHistoryGridDataSource" SelectCommand="SRODateRange" SelectCommandType="StoredProcedure" 
         ConnectionString="<%$ ConnectionStrings:DefaultConnection %>">

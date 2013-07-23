@@ -11,9 +11,9 @@
     <div>
         <asp:Label ID="accountLabel" runat="server" Text="Account:"></asp:Label>
         <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="accountDropDown_SelectedIndexChanged"></asp:DropDownList>
-        <asp:SqlDataSource runat="server" ID="accountDropDownDataSource" SelectCommand="AccountNumber" SelectCommandType="StoredProcedure" 
+        <asp:SqlDataSource runat="server" ID="accountDropDownDataSource" SelectCommand="AccountName" SelectCommandType="StoredProcedure" 
             ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" OnSelecting="accountDropDownDataSource_Selecting"></asp:SqlDataSource>
-        <asp:Label ID="accountDescriptionLabel" runat="server" Font-Italic="True">BSD POS</asp:Label>
+        <%--<asp:Label ID="accountDescriptionLabel" runat="server" Font-Italic="True">BSD POS</asp:Label>--%>
     </div>
     <asp:Label ID="amountLabel" runat="server" Text="Amount:"></asp:Label>
     <asp:Label ID="dollarSignLabel" runat="server" Text="$"></asp:Label>

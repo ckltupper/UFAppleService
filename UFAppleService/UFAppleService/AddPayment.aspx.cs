@@ -21,8 +21,8 @@ namespace UFAppleService
             if (!Page.IsPostBack)
             {
                 SqlDataSource ds = new SqlDataSource(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString,
-                    "Select COAID From ChartofAccounts Where COAID LIKE '2%'");
-                accountDropDown.DataTextField = "COAID";
+                    "Select Description From ChartofAccounts Where COAID LIKE '2%'");
+                accountDropDown.DataTextField = "Description";
                 accountDropDown.DataSource = ds;
                 accountDropDown.DataBind();
                 accountDropDown.SelectedIndex = -1;
@@ -41,7 +41,7 @@ namespace UFAppleService
                 SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.StoredProcedure };
                 sqlcmd.CommandText = "NewCharge";
                 sqlcmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
-                sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
+                sqlcmd.Parameters.AddWithValue("@Description", accountDropDown.SelectedValue);
                 sqlcmd.Parameters.AddWithValue("@Amount" , TrueAmount);
                 sqlcmd.Parameters.AddWithValue("@Date", dateTextBox.Text);
                 sqlcmd.Parameters.AddWithValue("@Comment", commentTextBox.Text);
@@ -58,22 +58,22 @@ namespace UFAppleService
 
         protected void accountDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            sqlconn.Open();
-            SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
-            sqlcmd.CommandText = "Select * From ChartofAccounts Where COAID = @COAID";
-            SqlDataAdapter sqlda = new SqlDataAdapter(sqlcmd);
+            //DataTable dt = new DataTable();
+            //SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            //sqlconn.Open();
+            //SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
+            //sqlcmd.CommandText = "Select * From ChartofAccounts Where COAID = @COAID";
+            //SqlDataAdapter sqlda = new SqlDataAdapter(sqlcmd);
 
-            sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
-            sqlda.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                accountDescriptionLabel.Text = dt.Rows[0]["Description"].ToString();
+            ////sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
+            ////sqlda.Fill(dt);
+            ////if (dt.Rows.Count > 0)
+            ////{
+            ////    accountDescriptionLabel.Text = dt.Rows[0]["Description"].ToString();
                 
-            }
+            ////}
 
-            sqlconn.Close();
+            //sqlconn.Close();
         }
 
         protected void accountDropDownDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)

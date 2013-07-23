@@ -19,8 +19,8 @@ namespace UFAppleService
             if (!Page.IsPostBack)
             {
                 SqlDataSource ds = new SqlDataSource(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString,
-                    "Select COAID From ChartofAccounts Where COAID LIKE '1%'");
-                accountDropDown.DataTextField = "COAID";
+                    "Select Description From ChartofAccounts Where COAID LIKE '1%'");
+                accountDropDown.DataTextField = "Description";
                 accountDropDown.DataSource = ds;
                 accountDropDown.DataBind();
             }
@@ -31,10 +31,12 @@ namespace UFAppleService
         {
             using (SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
+                
+                
                 SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.StoredProcedure };
                 sqlcmd.CommandText = "NewCharge";
                 sqlcmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
-                sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
+                sqlcmd.Parameters.AddWithValue("@Description", accountDropDown.SelectedValue);
                 sqlcmd.Parameters.AddWithValue("@Amount", amountTextBox.Text);
                 sqlcmd.Parameters.AddWithValue("@Date", dateTextBox.Text);
                 sqlcmd.Parameters.AddWithValue("@Comment", commentTextBox.Text);
@@ -51,27 +53,17 @@ namespace UFAppleService
 
         protected void accountDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            sqlconn.Open();
-            SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
-            sqlcmd.CommandText = "Select * From ChartofAccounts Where COAID = @COAID";
-            SqlDataAdapter sqlda = new SqlDataAdapter(sqlcmd);
-
-            sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
-            sqlda.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                accountDescriptionLabel.Text = dt.Rows[0]["Description"].ToString();
-                
-            }
-
-            sqlconn.Close();
+            
         }
 
         protected void accountDropDownDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
             accountDropDownDataSource.SelectParameters["AccountNumber"].DefaultValue = accountDropDown.SelectedValue;
+        }
+
+        protected void sROTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
        

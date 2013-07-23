@@ -46,7 +46,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server">U<a href="Default.aspx">F Apple S</a>ervice </a>
+                    <a runat="server"><a href="Default.aspx">UF Apple Service</a></a>
                 </p>
             </div>
             <div class="float-right">

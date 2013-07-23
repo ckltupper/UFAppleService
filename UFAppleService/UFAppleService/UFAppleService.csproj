@@ -128,6 +128,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="AddCharge.aspx" />
     <Content Include="AddSRO.aspx" />
+    <Content Include="ComplimentaryRepairs.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -189,6 +190,9 @@
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
+    <Content Include="NoTransactions.aspx" />
+    <Content Include="OutOfWarrantyRepairs.aspx" />
+    <Content Include="RepairAdjustments.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
@@ -295,6 +299,7 @@
     <Content Include="Scripts\__jquery.tablesorter\themes\green\desc.png" />
     <Content Include="Scripts\__jquery.tablesorter\themes\green\style.css" />
     <Content Include="SingleSROPaymentHistory.aspx" />
+    <Content Include="WarrantyRepairs.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -359,6 +364,13 @@
     <Compile Include="AddPayment.aspx.designer.cs">
       <DependentUpon>AddPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ComplimentaryRepairs.aspx.cs">
+      <DependentUpon>ComplimentaryRepairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplimentaryRepairs.aspx.designer.cs">
+      <DependentUpon>ComplimentaryRepairs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DateRangeSROPaymentHistory.aspx.cs">
       <DependentUpon>DateRangeSROPaymentHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,6 +395,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="NoTransactions.aspx.cs">
+      <DependentUpon>NoTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoTransactions.aspx.designer.cs">
+      <DependentUpon>NoTransactions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NumberRangeSROPaymentHistory.aspx.cs">
       <DependentUpon>NumberRangeSROPaymentHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -397,7 +416,21 @@
     <Compile Include="OpenInvoices.aspx.designer.cs">
       <DependentUpon>OpenInvoices.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OutOfWarrantyRepairs.aspx.cs">
+      <DependentUpon>OutOfWarrantyRepairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutOfWarrantyRepairs.aspx.designer.cs">
+      <DependentUpon>OutOfWarrantyRepairs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepairAdjustments.aspx.cs">
+      <DependentUpon>RepairAdjustments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RepairAdjustments.aspx.designer.cs">
+      <DependentUpon>RepairAdjustments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SingleSROPaymentHistory.aspx.cs">
       <DependentUpon>SingleSROPaymentHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,6 +444,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WarrantyRepairs.aspx.cs">
+      <DependentUpon>WarrantyRepairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarrantyRepairs.aspx.designer.cs">
+      <DependentUpon>WarrantyRepairs.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

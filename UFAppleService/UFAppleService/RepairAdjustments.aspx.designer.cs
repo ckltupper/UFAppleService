@@ -10,25 +10,25 @@
 namespace UFAppleService {
     
     
-    public partial class OpenInvoices {
+    public partial class RepairAdjustments {
         
         /// <summary>
-        /// OpenInvoicesGrid control.
+        /// RepairAdjustmentsGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid OpenInvoicesGrid;
+        protected global::System.Web.UI.WebControls.DataGrid RepairAdjustmentsGrid;
         
         /// <summary>
-        /// Label1 control.
+        /// totalLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label totalLabel;
         
         /// <summary>
         /// amountTotalLabel control.
@@ -40,12 +40,12 @@ namespace UFAppleService {
         protected global::System.Web.UI.WebControls.Label amountTotalLabel;
         
         /// <summary>
-        /// OpenInvoicesGridDataSource control.
+        /// RepairAdjustmentGridDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource OpenInvoicesGridDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource RepairAdjustmentGridDataSource;
     }
 }

@@ -13,6 +13,8 @@ namespace UFAppleService
 {
     public partial class OpenInvoices : System.Web.UI.Page
     {
+        decimal TotalAmount = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -24,7 +26,7 @@ namespace UFAppleService
         {
             SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-            string SQL_QUERY = "SELECT SRONumber, SUM(Amount) AS Balance FROM Transactions GROUP BY SRONumber HAVING SUM(Amount) != 0 ORDER BY " + orderBy;
+            string SQL_QUERY = "SELECT Transactions.SRONumber, SUM(Amount) AS Balance, DateCreated FROM Transactions LEFT JOIN SRO ON Transactions.SRONumber = SRO.SRONumber GROUP BY Transactions.SRONumber, DateCreated HAVING SUM(Amount) != 0 ORDER BY " + orderBy;
                 SqlCommand cmd = new SqlCommand(SQL_QUERY, sqlconn);
 
             sqlconn.Open();
@@ -37,6 +39,20 @@ namespace UFAppleService
         protected void OpenInvoicesGrid_SortCommand(object source, DataGridSortCommandEventArgs e)
         {
             BindData(e.SortExpression);
+        }
+
+        protected void OpenInvoicesGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemType != ListItemType.Header && e.Item.ItemType != ListItemType.Footer)
+            {
+                TotalAmount += decimal.Parse(e.Item.Cells[2].Text);
+                amountTotalLabel.Text = TotalAmount.ToString("c");
+            }
+            else if (e.Item.ItemType == ListItemType.Footer)
+            {
+                e.Item.Cells[0].Text = "Total:";
+                e.Item.Cells[2].Text = TotalAmount.ToString("c");
+            }
         }
     }
 }
