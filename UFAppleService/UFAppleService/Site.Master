@@ -13,6 +13,14 @@
     
     <meta charset="utf-8" />
     <title><%: Page.Title %> - UF Apple Service</title>
+    
+    
+
+
+
+    
+    
+    
     <asp:PlaceHolder runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
@@ -20,6 +28,12 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+
+    
+
+
+
+
 </head>
 <body>
     <form runat="server">

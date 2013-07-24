@@ -13,7 +13,7 @@ namespace UFAppleService
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            beginningDateTextBox.Focus();
         }
 
         protected void WarrantyRepairsGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
@@ -28,6 +28,13 @@ namespace UFAppleService
                 e.Item.Cells[0].Text = "Total:";
                 e.Item.Cells[4].Text = TotalAmount.ToString("c");
             }
+        }
+
+        protected void viewButton_Click(object sender, EventArgs e)
+        {
+            WarrantyRepairGridDataSource.SelectParameters["DateMin"].DefaultValue = beginningDateTextBox.Text;
+            WarrantyRepairGridDataSource.SelectParameters["DateMax"].DefaultValue = endDateTextBox.Text;
+            totalLabel.Visible = true;
         }
     }
 }

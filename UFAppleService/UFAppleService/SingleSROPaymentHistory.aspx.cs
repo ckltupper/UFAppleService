@@ -25,6 +25,12 @@ namespace UFAppleService
                 PaymentHistoryGridDataSource.SelectParameters["SRONumber"].DefaultValue = Request.Params["SRONumber"];
 
                 sROTextBox.Text = Request.Params["SRONumber"];
+
+                balanceLabel.Visible = true;
+            }
+            else
+            {
+                sROTextBox.Focus();
             }
 
         }
@@ -49,7 +55,8 @@ namespace UFAppleService
         protected void viewButton_Click(object sender, EventArgs e)
         {
             PaymentHistoryGridDataSource.SelectParameters["SRONumber"].DefaultValue = sROTextBox.Text;
-            
+
+            balanceLabel.Visible = true;
         }
     }
 }

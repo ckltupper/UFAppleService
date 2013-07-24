@@ -13,6 +13,51 @@ namespace UFAppleService {
     public partial class WarrantyRepairs {
         
         /// <summary>
+        /// beginningDateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label beginningDateLabel;
+        
+        /// <summary>
+        /// beginningDateTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox beginningDateTextBox;
+        
+        /// <summary>
+        /// endDateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label endDateLabel;
+        
+        /// <summary>
+        /// endDateTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox endDateTextBox;
+        
+        /// <summary>
+        /// viewButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button viewButton;
+        
+        /// <summary>
         /// WarrantyRepairsGrid control.
         /// </summary>
         /// <remarks>

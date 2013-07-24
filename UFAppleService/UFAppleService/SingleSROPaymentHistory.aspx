@@ -23,8 +23,8 @@
 
         
     </asp:DataGrid>
-    <asp:Label ID="balanceLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Balance:"></asp:Label>
-    <asp:Label ID="amountBalanceLabel" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+    <asp:Label ID="balanceLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Balance:" style="left: 325px; position: relative" Visible="false"></asp:Label>
+    <asp:Label ID="amountBalanceLabel" runat="server" Font-Bold="True" Font-Size="Large" style="left: 333px; position: relative"></asp:Label>
     <asp:SqlDataSource runat="server" ID="PaymentHistoryGridDataSource" SelectCommand="SROPaymentHistory" SelectCommandType="StoredProcedure" 
         ConnectionString="<%$ ConnectionStrings:DefaultConnection %>">
         <SelectParameters>

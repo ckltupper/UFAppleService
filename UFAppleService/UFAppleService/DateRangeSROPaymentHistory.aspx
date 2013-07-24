@@ -13,7 +13,7 @@
         <Columns>
             <asp:HyperLinkColumn DataTextField="SRONumber" DataNavigateUrlField="SRONumber" DataNavigateUrlFormatString="SingleSROPaymentHistory.aspx?SRONumber={0}" NavigateUrl="~/SingleSROPaymentHistory.aspx" 
                 HeaderText="SRO Number" />
-            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction ID" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Date" HeaderText="Date" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Description" HeaderText="Account" />
             <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" >

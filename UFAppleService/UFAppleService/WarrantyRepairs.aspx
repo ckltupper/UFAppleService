@@ -4,11 +4,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
+    <asp:Label ID="beginningDateLabel" runat="server" Text="Beginning Date:"></asp:Label>
+    <asp:TextBox ID="beginningDateTextBox" runat="server" Width="90px" MaxLength="10"></asp:TextBox>
+    <asp:Label ID="endDateLabel" runat="server" Text="End Date:"></asp:Label>
+    <asp:TextBox ID="endDateTextBox" runat="server" MaxLength="10" Width="90px"></asp:TextBox>
+    <asp:Button ID="viewButton" runat="server" Text="View" OnClick="viewButton_Click" />
     
     <asp:DataGrid runat="server" ID="WarrantyRepairsGrid" DataSourceID="WarrantyRepairGridDataSource" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="Larger" AutoGenerateColumns="false" 
         OnItemDataBound="WarrantyRepairsGrid_ItemDataBound">
         <Columns>
-            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction ID" FooterStyle-HorizontalAlign="Center" />
+            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction" FooterStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="SRONumber" HeaderText="SRO Number" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Description" HeaderText="Account" />
             <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" />
@@ -18,11 +24,13 @@
         </Columns>
     </asp:DataGrid>
 
-    <asp:Label ID="totalLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Total:"></asp:Label>
-    <asp:Label ID="amountTotalLabel" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+    <asp:Label ID="totalLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Total:" Visible="false" style="left: 325px; position: relative"></asp:Label>
+    <asp:Label ID="amountTotalLabel" runat="server" Font-Bold="True" Font-Size="Large" style="left: 333px; position: relative"></asp:Label>
 
-    <asp:SqlDataSource runat="server" ID="WarrantyRepairGridDataSource" SelectCommand="SELECT dbo.Transactions.TransactionID, dbo.Transactions.SRONumber, dbo.ChartofAccounts.Description, dbo.Transactions.Amount, dbo.Transactions.Date, 
-                      dbo.Comment.Comment FROM dbo.Transactions LEFT OUTER JOIN dbo.ChartofAccounts ON dbo.Transactions.COAID = dbo.ChartofAccounts.COAID LEFT OUTER JOIN dbo.Comment ON dbo.Transactions.CID = dbo.Comment.CID 
-                      WHERE (dbo.Transactions.COAID = 110)" SelectCommandType="Text" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>">
+    <asp:SqlDataSource runat="server" ID="WarrantyRepairGridDataSource" SelectCommand="WarrantyRepairs" SelectCommandType="StoredProcedure" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>">
+        <SelectParameters>
+            <asp:Parameter Name="DateMin" />
+            <asp:Parameter Name="DateMax" />
+        </SelectParameters>
     </asp:SqlDataSource>  
 </asp:Content>

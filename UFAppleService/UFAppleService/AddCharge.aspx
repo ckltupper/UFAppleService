@@ -11,7 +11,7 @@
     <asp:Label ID="errorLabel" runat="server" Font-Bold="True" Font-Size="Medium" Text="That SRO does not exist.  Please verify the number is correct." Visible="False"></asp:Label>
     <div>
         <asp:Label ID="accountLabel" runat="server" Text="Account:"></asp:Label>
-        <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="accountDropDown_SelectedIndexChanged"></asp:DropDownList>
+        <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" ></asp:DropDownList>
         <asp:SqlDataSource runat="server" ID="accountDropDownDataSource" SelectCommand="AccountName" SelectCommandType="StoredProcedure" 
             ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" OnSelecting="accountDropDownDataSource_Selecting"></asp:SqlDataSource>
         

@@ -7,13 +7,14 @@
 
     <asp:Label ID="sRONumberLabel1" runat="server" Text="SRO Number:"></asp:Label>
     <asp:Label ID="sRONumberLabel2" runat="server" Text="S-"></asp:Label>
-    <asp:TextBox ID="sROTextBox" runat="server" MaxLength="6" Width="57px"></asp:TextBox>
+    <asp:TextBox ID="sROTextBox" runat="server" MaxLength="6" Width="57px" AutoPostBack="true" OnTextChanged="sROTextBox_TextChanged"></asp:TextBox>
+    <asp:Label ID="errorLabel" runat="server" Font-Bold="True" Font-Size="Medium" Text="That SRO does not exist.  Please verify the number is correct." Visible="False"></asp:Label>
     <div>
         <asp:Label ID="accountLabel" runat="server" Text="Account:"></asp:Label>
-        <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" OnSelectedIndexChanged="accountDropDown_SelectedIndexChanged"></asp:DropDownList>
+        <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" ></asp:DropDownList>
         <asp:SqlDataSource runat="server" ID="accountDropDownDataSource" SelectCommand="AccountName" SelectCommandType="StoredProcedure" 
             ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" OnSelecting="accountDropDownDataSource_Selecting"></asp:SqlDataSource>
-        <%--<asp:Label ID="accountDescriptionLabel" runat="server" Font-Italic="True">BSD POS</asp:Label>--%>
+       
     </div>
     <asp:Label ID="amountLabel" runat="server" Text="Amount:"></asp:Label>
     <asp:Label ID="dollarSignLabel" runat="server" Text="$"></asp:Label>

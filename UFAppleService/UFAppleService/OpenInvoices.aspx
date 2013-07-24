@@ -18,8 +18,8 @@
         
     </asp:DataGrid>
 
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" Text="Total: "></asp:Label>
-    <asp:Label ID="amountTotalLabel" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" Text="Total: " style="left: 100px; position: relative"></asp:Label>
+    <asp:Label ID="amountTotalLabel" runat="server" Font-Bold="True" Font-Size="Large" style="left: 115px; position: relative"></asp:Label>
 
     <asp:SqlDataSource runat="server" ID="OpenInvoicesGridDataSource" SelectCommand="OpenSRO" SelectCommandType="StoredProcedure" 
         ConnectionString="<%$ ConnectionStrings:DefaultConnection %>">

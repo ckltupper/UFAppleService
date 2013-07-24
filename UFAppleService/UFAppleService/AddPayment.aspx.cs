@@ -27,6 +27,8 @@ namespace UFAppleService
                 accountDropDown.DataBind();
                 accountDropDown.SelectedIndex = -1;
             }
+
+            sROTextBox.Focus();
             
         }
 
@@ -56,29 +58,40 @@ namespace UFAppleService
             commentTextBox.Text = string.Empty;
         }
 
-        protected void accountDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //DataTable dt = new DataTable();
-            //SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            //sqlconn.Open();
-            //SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
-            //sqlcmd.CommandText = "Select * From ChartofAccounts Where COAID = @COAID";
-            //SqlDataAdapter sqlda = new SqlDataAdapter(sqlcmd);
-
-            ////sqlcmd.Parameters.AddWithValue("@COAID", accountDropDown.SelectedValue);
-            ////sqlda.Fill(dt);
-            ////if (dt.Rows.Count > 0)
-            ////{
-            ////    accountDescriptionLabel.Text = dt.Rows[0]["Description"].ToString();
-                
-            ////}
-
-            //sqlconn.Close();
-        }
+      
 
         protected void accountDropDownDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
             accountDropDownDataSource.SelectParameters["AccountNumber"].DefaultValue = accountDropDown.SelectedValue;
+        }
+
+        protected void sROTextBox_TextChanged(object sender, EventArgs e)
+        {
+            errorLabel.Visible = false;
+            saveButton.Visible = true;
+
+            if (string.IsNullOrEmpty(sROTextBox.Text))
+            {
+                errorLabel.Visible = true;
+                saveButton.Visible = false;
+            }
+            else
+            {
+                SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                sqlconn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT SRONumber FROM SRO WHERE SRONumber = @SRONumber", sqlconn);
+                SqlParameter param = new SqlParameter();
+                cmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    errorLabel.Visible = true;
+                    saveButton.Visible = false;
+                }
+
+                sqlconn.Close();
+            }
         }
 
        

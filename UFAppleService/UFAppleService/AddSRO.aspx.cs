@@ -15,7 +15,7 @@ namespace UFAppleService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            sROTextBox.Focus();
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
