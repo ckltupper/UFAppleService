@@ -60,6 +60,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
+                    <asp:Image ID="Image1" runat="server" ImageAlign="Middle" ImageUrl="~/Images/apple-logo.jpg" Width="45px" />
                     <a runat="server"><a href="Default.aspx">UF Apple Service</a></a>
                 </p>
             </div>
