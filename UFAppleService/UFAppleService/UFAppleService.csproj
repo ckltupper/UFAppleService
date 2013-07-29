@@ -186,6 +186,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="AddPayment.aspx" />
     <Content Include="DateRangeSROPaymentHistory.aspx" />
+    <Content Include="EditSRO.aspx" />
     <Content Include="FindMissingSROs.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\apple-logo.jpg" />
@@ -385,6 +386,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditSRO.aspx.cs">
+      <DependentUpon>EditSRO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditSRO.aspx.designer.cs">
+      <DependentUpon>EditSRO.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindMissingSROs.aspx.cs">
       <DependentUpon>FindMissingSROs.aspx</DependentUpon>

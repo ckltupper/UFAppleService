@@ -91,6 +91,8 @@ namespace UFAppleService
                 }
 
                 sqlconn.Close();
+
+                accountDropDown.Focus();
             }
         }
 

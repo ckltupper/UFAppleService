@@ -15,7 +15,10 @@ namespace UFAppleService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            sROTextBox.Focus();
+            if (!Page.IsPostBack)
+            {
+                sROTextBox.Focus();
+            }
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
@@ -35,6 +38,77 @@ namespace UFAppleService
             dateCreatedTextBox.Text = string.Empty;
             pONumberTextBox.Text = string.Empty;
 
+        }
+
+        protected Boolean CheckSRO()
+        {
+            if (string.IsNullOrEmpty(sROTextBox.Text))
+            {
+                return false;
+            }
+            else
+            {
+                SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                sqlconn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT SRONumber FROM SRO WHERE SRONumber = @SRONumber", sqlconn);
+                SqlParameter param = new SqlParameter();
+                cmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                sqlconn.Close();
+            }
+            return true;
+        }
+
+        protected Boolean CheckDate()
+        {
+            Page.Validate();
+
+            if (string.IsNullOrEmpty(dateCreatedTextBox.Text))
+            {
+                return false;
+            }
+            else
+            {
+                if (Page.IsValid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        protected void dateCreatedTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+
+            if (CheckSRO())
+            {
+                if (CheckDate())
+                {
+                    saveButton.Visible = true;
+                }
+            }
+        }
+
+        protected void sROTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+
+            if (CheckDate())
+            {
+                if (CheckSRO())
+                {
+                    saveButton.Visible = true;
+                }
+            }
         }
     }
 }

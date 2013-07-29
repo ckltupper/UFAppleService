@@ -6,9 +6,10 @@
     <h3>Select one of the following:</h3>
     <ol class="round">
         <li class="one">
-            <h5>Add SRO</h5>
-            Add a new SRO to the system.
+            <h5>SRO Management</h5>
+            Add a new SRO or edit an existing SRO in the system.
             <a href="AddSRO.aspx">Add SRO</a>
+            <a href="EditSRO.aspx">Edit SRO</a>
         </li>
         <li class="two">
             <h5>Add New Transaction</h5>

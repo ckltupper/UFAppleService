@@ -10,7 +10,7 @@
 namespace UFAppleService {
     
     
-    public partial class AddSRO {
+    public partial class EditSRO {
         
         /// <summary>
         /// sROLabel1 control.
@@ -40,6 +40,15 @@ namespace UFAppleService {
         protected global::System.Web.UI.WebControls.TextBox sROTextBox;
         
         /// <summary>
+        /// findButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button findButton;
+        
+        /// <summary>
         /// dateCreatedLabel control.
         /// </summary>
         /// <remarks>
@@ -56,15 +65,6 @@ namespace UFAppleService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dateCreatedTextBox;
-        
-        /// <summary>
-        /// RegularExpressionValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// pONumberLabel1 control.
