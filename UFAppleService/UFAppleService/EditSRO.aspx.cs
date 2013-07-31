@@ -18,7 +18,10 @@ namespace UFAppleService
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            sROTextBox.Focus();
+            if (!Page.IsPostBack)
+            {
+                sROTextBox.Focus();
+            }
         }
 
         protected void findButton_Click(object sender, EventArgs e)
@@ -44,15 +47,45 @@ namespace UFAppleService
             sqlconn.Close();
         }
 
-        protected void saveButton_Click(object sender, EventArgs e)
+        protected void updateButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            updateButton.Visible = false;
+
+            if (CheckDate())
             {
-                SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
-                sqlcmd.CommandText = "UPDATE SRO SET DateCreated='" + dateCreatedTextBox.Text + "'" + ",  PONumber='" + pONumberTextBox.Text + "'";
-                sqlconn.Open();
-                sqlcmd.ExecuteNonQuery();
-                sqlconn.Close();
+                using (SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+                {
+                    SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.Text };
+                    sqlcmd.CommandText = "UPDATE SRO SET DateCreated='" + dateCreatedTextBox.Text + "'" + ",  PONumber='" + pONumberTextBox.Text + "'";
+                    sqlconn.Open();
+                    sqlcmd.ExecuteNonQuery();
+                    sqlconn.Close();
+                }
+
+                sROTextBox.Text = string.Empty;
+                dateCreatedTextBox.Text = string.Empty;
+                pONumberTextBox.Text = string.Empty;
+            }
+        }
+
+        protected Boolean CheckDate()
+        {
+            Page.Validate();
+
+            if (string.IsNullOrEmpty(dateCreatedTextBox.Text))
+            {
+                return false;
+            }
+            else
+            {
+                if (Page.IsValid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
     }

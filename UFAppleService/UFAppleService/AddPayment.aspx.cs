@@ -27,9 +27,7 @@ namespace UFAppleService
                 accountDropDown.DataBind();
                 accountDropDown.SelectedIndex = -1;
             }
-
             sROTextBox.Focus();
-            
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
@@ -38,8 +36,7 @@ namespace UFAppleService
             {
                 Amount = decimal.Parse(amountTextBox.Text);
                 TrueAmount = Amount * -1;
-
-                
+   
                 SqlCommand sqlcmd = new SqlCommand() { Connection = sqlconn, CommandType = CommandType.StoredProcedure };
                 sqlcmd.CommandText = "NewCharge";
                 sqlcmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
@@ -58,22 +55,16 @@ namespace UFAppleService
             commentTextBox.Text = string.Empty;
         }
 
-      
-
         protected void accountDropDownDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
             accountDropDownDataSource.SelectParameters["AccountNumber"].DefaultValue = accountDropDown.SelectedValue;
         }
 
-        protected void sROTextBox_TextChanged(object sender, EventArgs e)
+      protected Boolean CheckSRO()
         {
-            errorLabel.Visible = false;
-            saveButton.Visible = true;
-
             if (string.IsNullOrEmpty(sROTextBox.Text))
             {
-                errorLabel.Visible = true;
-                saveButton.Visible = false;
+                return false;
             }
             else
             {
@@ -86,16 +77,58 @@ namespace UFAppleService
 
                 if (!reader.HasRows)
                 {
-                    errorLabel.Visible = true;
-                    saveButton.Visible = false;
+                    return false;
                 }
-
                 sqlconn.Close();
+            }
+            return true;
+        }
 
-                accountDropDown.Focus();
+        protected Boolean CheckDate()
+        {
+            Page.Validate();
+
+            if (string.IsNullOrEmpty(dateTextBox.Text))
+            {
+                return false;
+            }
+            else
+            {
+                if (Page.IsValid)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
-       
+        protected void dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+
+            if (CheckSRO())
+            {
+                if (CheckDate())
+                {
+                    saveButton.Visible = true;
+                }
+            }
+        }
+
+        protected void sROTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+
+            if (CheckDate())
+            {
+                if (CheckSRO())
+                {
+                    saveButton.Visible = true;
+                }
+            }
+        } 
     }
 }

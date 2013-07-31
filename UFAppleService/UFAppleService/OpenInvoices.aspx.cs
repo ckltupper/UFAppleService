@@ -17,17 +17,15 @@ namespace UFAppleService
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             BindData("Balance DESC");
-
         }
 
         private void BindData(string orderBy)
         {
             SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-            string SQL_QUERY = "SELECT Transactions.SRONumber, SUM(Amount) AS Balance, DateCreated FROM Transactions LEFT JOIN SRO ON Transactions.SRONumber = SRO.SRONumber GROUP BY Transactions.SRONumber, DateCreated HAVING SUM(Amount) != 0 ORDER BY " + orderBy;
-                SqlCommand cmd = new SqlCommand(SQL_QUERY, sqlconn);
+            string SQL_QUERY = "SELECT Transactions.SRONumber, SUM(Amount) AS Balance, DateCreated FROM Transactions LEFT JOIN SRO ON Transactions.SRONumber =                      SRO.SRONumber GROUP BY Transactions.SRONumber, DateCreated HAVING SUM(Amount) != 0 ORDER BY " + orderBy;
+            SqlCommand cmd = new SqlCommand(SQL_QUERY, sqlconn);
 
             sqlconn.Open();
             OpenInvoicesGrid.DataSource = cmd.ExecuteReader();
@@ -35,7 +33,6 @@ namespace UFAppleService
             sqlconn.Close();
         }
 
-       
         protected void OpenInvoicesGrid_SortCommand(object source, DataGridSortCommandEventArgs e)
         {
             BindData(e.SortExpression);

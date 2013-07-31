@@ -8,7 +8,7 @@
         AutoGenerateColumns="False" AllowSorting="True" OnSortCommand="OpenInvoicesGrid_SortCommand" ShowFooter="false" OnItemDataBound="OpenInvoicesGrid_ItemDataBound">
         <Columns>
             <asp:HyperLinkColumn DataTextField="SRONumber" DataNavigateUrlField="SRONumber" DataNavigateUrlFormatString="SingleSROPaymentHistory.aspx?SRONumber={0}" NavigateUrl="~/SingleSROPaymentHistory.aspx" 
-                HeaderText="SRO Number" SortExpression="SRONumber" />
+                HeaderText="SRO Number" SortExpression="SRONumber" Target="_blank" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Balance" HeaderText="Balance" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" SortExpression="Balance DESC" />
             <asp:BoundColumn DataField="Balance" Visible="false" />
             <asp:BoundColumn DataField="DateCreated" HeaderText="Date Created" DataFormatString="{0:d}" SortExpression="DateCreated" ItemStyle-HorizontalAlign="Center" />

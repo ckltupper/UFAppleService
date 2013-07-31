@@ -14,7 +14,7 @@
     <asp:DataGrid runat="server" ID="NumberRangePaymentHistoryGrid" DataSourceID="NumberRangePaymentHistoryGridDataSource" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="Larger" AutoGenerateColumns="False">
         <Columns>
             <asp:HyperLinkColumn DataTextField="SRONumber" DataNavigateUrlField="SRONumber" DataNavigateUrlFormatString="SingleSROPaymentHistory.aspx?SRONumber={0}" NavigateUrl="~/SingleSROPaymentHistory.aspx" 
-                HeaderText="SRO Number" />
+                HeaderText="SRO Number" Target="_blank" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Date" HeaderText="Date" DataFormatString="{0:d}" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Description" HeaderText="Account" />
