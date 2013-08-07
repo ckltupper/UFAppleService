@@ -26,6 +26,6 @@
         ControlToValidate="dateTextBox" EnableClientScript="False"></asp:RegularExpressionValidator>
     <asp:Label ID="commentLabel" runat="server" Text="Comment:"></asp:Label>
     <asp:TextBox ID="commentTextBox" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox>
-    <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" />
+    <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" Visible="false" />
 
 </asp:Content>

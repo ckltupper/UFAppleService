@@ -88,5 +88,10 @@ namespace UFAppleService
                 }
             }
         }
+
+        protected void dateCreatedTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckDate();
+        }
     }
 }
