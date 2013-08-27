@@ -24,7 +24,7 @@
         </Columns>
     </asp:DataGrid>
 
-    <asp:Label ID="totalLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Total:" style="text-align: left; left: 360px; position: relative;" Visible="false"></asp:Label>
+    <asp:Label ID="totalLabel" runat="server" Font-Bold="True" Font-Size="Large" Text="Total:" style="text-align: left; left: 340px; position: relative;" Visible="false"></asp:Label>
     <asp:Label ID="amountTotalLabel" runat="server" Font-Bold="True" Font-Size="Large" style="left: 370px; position: relative"></asp:Label>
 
     <asp:SqlDataSource runat="server" ID="OutOfWarrantyRepairsGridDataSource" SelectCommand="OutofWarrantyRepair" SelectCommandType="StoredProcedure" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>">

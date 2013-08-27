@@ -21,6 +21,100 @@ namespace UFAppleService
             }
         }
 
+        protected Boolean CheckSRO()
+        {
+            if (string.IsNullOrEmpty(sROTextBox.Text))
+            {
+                return false;
+
+                sROTextBox.Focus();
+            }
+            else
+            {
+                SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                sqlconn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT SRONumber FROM SRO WHERE SRONumber = @SRONumber", sqlconn);
+                SqlParameter param = new SqlParameter();
+                cmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                sqlconn.Close();
+
+                dateCreatedTextBox.Focus();
+            }
+            return true;
+        }
+
+        protected Boolean CheckDate()
+        {
+            Page.Validate();
+
+            if (string.IsNullOrEmpty(dateCreatedTextBox.Text))
+            {
+                return false;
+                dateCreatedTextBox.Focus();
+            }
+            else
+            {
+                if (Page.IsValid)
+                {
+                    return true;
+                    pONumberTextBox.Focus();
+                }
+                else
+                {
+                    return false;
+                    dateCreatedTextBox.Focus();
+                }
+            }
+        }
+
+        protected void sROTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+
+            if (CheckDate())
+            {
+                if (CheckSRO())
+                {
+                    saveButton.Visible = true;
+                }
+                else
+                {
+                    sROTextBox.Focus();
+                }
+            }
+            else
+            {
+                dateCreatedTextBox.Focus();
+            }
+        }
+
+        protected void dateCreatedTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Visible = false;
+
+            if (CheckSRO())
+            {
+                if (CheckDate())
+                {
+                    saveButton.Visible = true;
+                }
+                else
+                {
+                    dateCreatedTextBox.Focus();
+                }
+            }
+            else
+            {
+                sROTextBox.Focus();
+            }
+        }
+
         protected void saveButton_Click(object sender, EventArgs e)
         {
             using (SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
@@ -37,78 +131,8 @@ namespace UFAppleService
             sROTextBox.Text = string.Empty;
             dateCreatedTextBox.Text = string.Empty;
             pONumberTextBox.Text = string.Empty;
-
-        }
-
-        protected Boolean CheckSRO()
-        {
-            if (string.IsNullOrEmpty(sROTextBox.Text))
-            {
-                return false;
-            }
-            else
-            {
-                SqlConnection sqlconn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-                sqlconn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT SRONumber FROM SRO WHERE SRONumber = @SRONumber", sqlconn);
-                SqlParameter param = new SqlParameter();
-                cmd.Parameters.AddWithValue("@SRONumber", sROTextBox.Text);
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    return false;
-                }
-                sqlconn.Close();
-            }
-            return true;
-        }
-
-        protected Boolean CheckDate()
-        {
-            Page.Validate();
-
-            if (string.IsNullOrEmpty(dateCreatedTextBox.Text))
-            {
-                return false;
-            }
-            else
-            {
-                if (Page.IsValid)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
-        protected void dateCreatedTextBox_TextChanged(object sender, EventArgs e)
-        {
-            saveButton.Visible = false;
-
-            if (CheckSRO())
-            {
-                if (CheckDate())
-                {
-                    saveButton.Visible = true;
-                }
-            }
-        }
-
-        protected void sROTextBox_TextChanged(object sender, EventArgs e)
-        {
-            saveButton.Visible = false;
-
-            if (CheckDate())
-            {
-                if (CheckSRO())
-                {
-                    saveButton.Visible = true;
-                }
-            }
+            
+            sROTextBox.Focus();
         }
     }
 }

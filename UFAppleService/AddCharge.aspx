@@ -14,15 +14,21 @@
         <asp:DropDownList ID="accountDropDown" runat="server" AutoPostBack="true" ></asp:DropDownList>
         <asp:SqlDataSource runat="server" ID="accountDropDownDataSource" SelectCommand="AccountName" SelectCommandType="StoredProcedure" 
             ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" OnSelecting="accountDropDownDataSource_Selecting"></asp:SqlDataSource>
-        
     </div>
     <asp:Label ID="amountLabel" runat="server" Text="Amount:"></asp:Label>
     <asp:Label ID="dollarSignLabel" runat="server" Text="$"></asp:Label>
-    <asp:TextBox ID="amountTextBox" runat="server" Width="57px"></asp:TextBox>
+    <asp:TextBox ID="amountTextBox" runat="server" Width="57px" ></asp:TextBox>
     <asp:Label ID="dateLabel" runat="server" Text="Date:"></asp:Label>
-    <asp:TextBox ID="dateTextBox" runat="server" MaxLength="10" Width="90px"></asp:TextBox>
+    <asp:TextBox ID="dateTextBox" runat="server" MaxLength="10" Width="90px" AutoPostBack="true" OnTextChanged="dateTextBox_TextChanged"></asp:TextBox>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid date." 
+        ValidationExpression="^(1[0-2]|0?[1-9])/(3[01]|[12][0-9]|0?[1-9])/(?:[0-9]{2})?[0-9]{2}$" 
+        ControlToValidate="dateTextBox" EnableClientScript="False"></asp:RegularExpressionValidator>
     <asp:Label ID="commentLabel" runat="server" Text="Comment:"></asp:Label>
     <asp:TextBox ID="commentTextBox" runat="server" MaxLength="500" TextMode="MultiLine"></asp:TextBox>
-    <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" />
+    <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" Visible="false" />
+
+    <div>
+        <a href="AddPayment.aspx">Add a Payment</a>
+    </div>
 
 </asp:Content>

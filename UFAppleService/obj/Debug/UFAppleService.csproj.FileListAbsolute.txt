@@ -28,3 +28,33 @@ C:\Users\Charlotte Tupper\Documents\Visual Studio 2012\Projects\UFAppleService\U
 C:\Users\Charlotte Tupper\Documents\Visual Studio 2012\Projects\UFAppleService\UFAppleService\bin\DotNetOpenAuth.AspNet.xml
 C:\Users\Charlotte Tupper\Documents\Visual Studio 2012\Projects\UFAppleService\UFAppleService\obj\Debug\UFAppleService.dll
 C:\Users\Charlotte Tupper\Documents\Visual Studio 2012\Projects\UFAppleService\UFAppleService\obj\Debug\UFAppleService.pdb
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\UFAppleService.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\UFAppleService.pdb
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\Antlr3.Runtime.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.Core.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\EntityFramework.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\System.Web.Optimization.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\System.Web.Providers.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\WebGrease.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\EntityFramework.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.Core.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\obj\Debug\UFAppleService.csprojResolveAssemblyReference.cache
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\obj\Debug\UFAppleService.dll
+C:\Users\Charlotte Tupper\Documents\GitHub\UFAppleService\UFAppleService\obj\Debug\UFAppleService.pdb
