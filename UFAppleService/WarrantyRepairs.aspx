@@ -14,7 +14,7 @@
     <asp:DataGrid runat="server" ID="WarrantyRepairsGrid" DataSourceID="WarrantyRepairGridDataSource" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="Larger" AutoGenerateColumns="false" 
         OnItemDataBound="WarrantyRepairsGrid_ItemDataBound">
         <Columns>
-            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction" FooterStyle-HorizontalAlign="Center" />
+            <asp:BoundColumn DataField="TransactionID" HeaderText="Transaction" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="SRONumber" HeaderText="SRO Number" ItemStyle-HorizontalAlign="Center" />
             <asp:BoundColumn DataField="Description" HeaderText="Account" />
             <asp:BoundColumn DataField="Amount" HeaderText="Amount" DataFormatString="{0:c}" ItemStyle-HorizontalAlign="Right" />

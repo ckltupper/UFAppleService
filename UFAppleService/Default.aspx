@@ -31,7 +31,7 @@
         </li>
         <li class="five">
             <h5>SROs with No Transactions</h5>
-            View a list of SRO(s) that do not havew any transactions listed.
+            View a list of SRO(s) that do not have any transactions listed.
             <a href="FindMissingSROs.aspx">Missing SROs</a>
             <a href="NoTransactions.aspx">SROs with No Transactions</a>
         </li>
